@@ -34,7 +34,7 @@
 #define HIST_FILE	".simple_shell_history"
 #define HIST_MAX	4096
 
-extern char **task-3;
+extern char **task3;
 
 
 /**

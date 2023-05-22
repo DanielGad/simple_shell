@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _myenvv - prints the current environment
+ * _myenv - prints the current environment
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
-int _myenvv(info_t *info)
+int _myenv(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
@@ -35,13 +35,13 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenvv - Initialize a new environment variable,
+ * _mysetenv - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
-int _mysetenvv(info_t *info)
+int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
@@ -54,12 +54,12 @@ int _mysetenvv(info_t *info)
 }
 
 /**
- * _myunsetenvv - Remove an environment variable
+ * _myunsetenv - Remove an environment variable
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
- *  Return: Always 0
+ * Return: Always 0
  */
-int _myunsetenvv(info_t *info)
+int _myunsetenv(info_t *info)
 {
 	int i;
 
@@ -75,18 +75,22 @@ int _myunsetenvv(info_t *info)
 }
 
 /**
- * populate_envv_list - populates env linked list
+ * populate_env_list - populates env linked list
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
-int populate_envv_list(info_t *info)
+int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
+	for (i = 0; get_environn[i]; i++)
+		add_node_end(&node, get_environn[i], 0);
 	info->env = node;
 	return (0);
 }
+
+
+
+
