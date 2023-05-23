@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * interactive - returns true
+ * interactive - returns true if shell is interactive mode
  * @info: struct address
+ *
  * Return: 1 if interactive mode, 0 otherwise
  */
 int interactive(info_t *info)
@@ -71,4 +72,3 @@ int _atoi(char *s)
 
 	return (output);
 }
-
