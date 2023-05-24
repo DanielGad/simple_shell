@@ -1,32 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
-
-/**
- * main - Entry point
- * Description: a main function
- *
- * Return: 0 success.
- */
 
 int main(void)
 {
-	char *input;
+	char command[MAX_COMMAND_LENGTH];
 
-	while (1)
+while (1)
 	{
 		display_prompt();
-		input = read_input();
+		read_command(command);
 
-		if (input == NULL)
+		if (feof(stdin))
 		{
 			printf("\n");
-			break; /* Handle end of file (Ctrl+D) */
+			exit(EXIT_SUCCESS);
 		}
 
-		execute_command(input);
+		if (strcmp(command, "exit") == 0)
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else if (strcmp(command, "env") == 0)
+		{
+			char **env = __environ;
 
-		free(input); /* Free dynamically allocated input */
+while (*env)
+{
+				printf("%s\n", *env);
+				env++;
+			}
+		}
+		else
+		{
+			execute_command(command);
+		}
 	}
 
 	return (0);
